@@ -1,0 +1,319 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  
+:root {
+    --card-height: 140vh;
+    --card-width: calc(var(--card-height) / 1);
+  }
+
+html {
+    height: 100%;
+}
+
+body{
+    min-height: 100vh;
+    background: #212534;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    justify-content: center;
+
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: fantasy;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+  text-align: center; /* Center text within the div */
+
+}
+
+  .card:hover {
+    color: rgb(88 199 250 / 100%);
+    transition: color 1s;
+    text-shadow: 5px 3px 4px rgba(152, 158, 263, 0.5)
+
+  }
+  .card:hover:before, .card:hover:after {
+    animation: none;
+    opacity: 0;
+  }
+  
+  
+  .card::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      position: absolute;
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .card::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  
+
+/* Add CSS styles for buttons */
+input[type="submit"] {
+    background: rgb(34, 35, 119);
+    color: rgb(255, 255, 255); /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px;
+    height: 75px;
+    width: 250px;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    background: linear-gradient(0deg, rgba(6,14,131,1)  2%, rgba(12,25,180,1) 100%);
+    border: none;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(83, 99, 240, 0.1),
+    4px 4px 5px 0px rgba(58, 63, 129, 0.1);
+    outline: none;
+    text-shadow: 2px 2px 4px rgba(152, 158, 263, 0.5);
+    font-weight: bold;
+
+
+ 
+
+
+}
+
+/* Style the submit button on hover */
+input[type="submit"]:hover {
+    background: rgb(1, 2, 63);
+    background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+    
+
+}
+
+input[type="number"]{
+  display: inline-block;
+  display: inline;
+  padding: 8px;
+  margin: 10px;
+  width: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 5px;
+  outline: none;
+  height: 20px;
+  width: 100px;
+
+}
+
+/* Style the h1 element */      
+h1 {
+    font-size: 40px;
+    color: #9a86f1; /* Heading color */
+    text-shadow: 5px 3px 2px rgba(152, 158, 263, 0.5)
+
+}
+
+h2 {
+    font-size: 24px;
+    color: #9a86f1; /* Sub-heading color */
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Hide the file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Style the label */
+label {
+    display: flex;
+    flex-direction: column; /* Stack the text and the dashed border */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    height: 200px;
+    width: 300px;
+    border-radius: 6px;
+    border: 1px dashed #999;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+/* Style the label text */
+.choose-photo-label span {
+    text-align: center;
+    font-size: 36px;
+}
+
+input[type="file"]:hover,
+.choose-photo-label:hover, .k-label:hover {
+    color: #e43b2f; /* Button color on hover */
+    border: 1px dashed #de0611; /* Button scale on hover */
+}
+
+/* Style the color boxes */
+.color-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center; /* Center the color boxes horizontally */
+  align-items: center; /* Center the color boxes vertically */
+}
+
+.color {
+    background-color: #222; /* Blackish background color for color boxes */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.color p {
+    color: white; /* White text color for color descriptions */
+}
+
+/* Style the image */
+img {
+  max-width: 70%;
+  height: auto;
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.k-label {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 150px;
+    border-radius: 6px;
+    border: 1px dashed #999;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Center text within the K label */
+}
+
+.k-input {
+    display: inline;
+    padding: 8px;
+    margin: 10px;
+    width: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 5px;
+    outline: none;
+    height: 75px;
+    width: 150px;
+}
+
+/* Style the K input field on focus */
+.k-input:focus {
+    border: 2px solid #3366cc; /* Change the border color on focus */
+    box-shadow: 0 0 5px #3366cc; /* Add a shadow on focus */
+}
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.color-swatch {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.color-info {
+  position: absolute;
+  top: -40px; /* Adjust the top position to place the RGB info above the swatch */
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  display: none;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.color-swatch:hover .color-info {
+  display: block;
+}
